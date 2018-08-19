@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/item_location"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableTop="@drawable/ic_bottommenu_location"
+            android:gravity="center_horizontal"
+            android:text="定位"
+            android:textSize="13sp"
+            android:textColor="@drawable/text_bottommenu_selector" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/item_healthy"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableTop="@drawable/ic_bottommenu_healthy"
+            android:gravity="center_horizontal"
+            android:text="健康"
+            android:textSize="13sp"
+            android:textColor="@drawable/text_bottommenu_selector" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/item_mine"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:textSize="13sp"
+            android:drawableTop="@drawable/ic_bottommenu_mine"
+            android:text="我的"
+            android:textColor="@drawable/text_bottommenu_selector" />
+    </RelativeLayout>
+</LinearLayout>
