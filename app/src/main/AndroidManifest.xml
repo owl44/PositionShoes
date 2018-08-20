@@ -3,6 +3,7 @@
     package="com.shoes.position">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name=".config.PSApplicationConfig"
         android:allowBackup="true"
@@ -23,7 +24,8 @@
         <activity android:name=".ui.mine.StepDataActivity" />
         <activity android:name=".ui.mine.ProblemActivity" />
         <activity android:name=".ui.mine.AboutActivity" />
-        <activity android:name=".ui.mine.SetActivity"></activity>
+        <activity android:name=".ui.mine.SetActivity" />
+        <activity android:name=".ui.mine.PersonalInfoActivity"></activity>
     </application>
 
 </manifest>
