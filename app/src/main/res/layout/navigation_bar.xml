@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/navigation_bg">
+    
+    <TextView
+        android:id="@+id/leftText"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:minWidth="50dp"
+        android:drawableLeft="@drawable/sy_erweima"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/titleName"
+        android:text="D.Shoes"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/rightText"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="right"
+        android:gravity="center"
+        android:paddingRight="20dp"
+        android:minWidth="50dp"
+        android:drawableRight="@drawable/sy_fenxiang"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+</FrameLayout>

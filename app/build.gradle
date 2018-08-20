@@ -36,4 +36,5 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.7.5'
     compile 'com.google.code.gson:gson:2.8.1'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.41'
+    implementation 'com.orhanobut:dialogplus:1.11@aar'
 }

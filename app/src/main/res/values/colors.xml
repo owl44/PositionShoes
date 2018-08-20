@@ -10,4 +10,6 @@
     <color name="head_border">#1FD7C4</color>
     <color name="mine_bg">#F1F1F1</color>
     <color name="line_color">#E1E1E1</color>
+    <color name="exit_red">#FF0000</color>
+    <color name="navigation_bg">#9B80F3</color>
 </resources>

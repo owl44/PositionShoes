@@ -42,7 +42,7 @@ public class MineFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.mine_equipment,R.id.mine_step_data,R.id.mine_problem,R.id.mine_about,R.id.mine_set})
+    @OnClick({R.id.mine_equipment,R.id.mine_step_data,R.id.mine_problem,R.id.mine_about,R.id.mine_set,R.id.head_img})
     public void onClick(View view){
         Intent intent = null;
         switch (view.getId()){
@@ -64,6 +64,10 @@ public class MineFragment extends BaseFragment {
                 break;
             case R.id.mine_set:
                 intent = new Intent(getContext(),SetActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.head_img:
+                intent = new Intent(getContext(),PersonalInfoActivity.class);
                 startActivity(intent);
                 break;
         }

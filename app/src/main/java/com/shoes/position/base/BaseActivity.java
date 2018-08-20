@@ -80,19 +80,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     //处理逻辑;
     protected abstract void setLogic();
 
-    @RequiresApi(api = Build.VERSION_CODES.ECLAIR)
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        // TODO Auto-generated method stub
-        switch (keyCode) {
-            case KeyEvent.KEYCODE_BACK:
-                //        hideToastAnim();
-                finishActivity();
-                break;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
     //开启新页面
     @RequiresApi(api = Build.VERSION_CODES.ECLAIR)
     protected void goIntent(Intent intent) {
@@ -105,5 +92,16 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void finishActivity() {
         finish();
         overridePendingTransition(R.anim.in_from_left, R.anim.out_from_left);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                finishActivity();
+                break;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

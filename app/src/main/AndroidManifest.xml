@@ -20,8 +20,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.LoginActivity" />
-        <activity android:name=".ui.mine.MyEquitActivity" />
-        <activity android:name=".ui.mine.StepDataActivity" />
+        <activity android:name=".ui.mine.MyEquitActivity"
+            android:theme="@style/AppThemeNoTitle"/>
+        <activity android:name=".ui.mine.StepDataActivity"
+            android:theme="@style/AppThemeNoTitle"/>
         <activity android:name=".ui.mine.ProblemActivity" />
         <activity android:name=".ui.mine.AboutActivity" />
         <activity android:name=".ui.mine.SetActivity" />
