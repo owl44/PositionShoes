@@ -46,18 +46,15 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".ui.mine.PersonalInfoActivity"
             android:screenOrientation="portrait"/>
-        <activity
-            android:name="com.donkingliang.imageselector.ImageSelectorActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name="com.donkingliang.imageselector.PreviewActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name="com.donkingliang.imageselector.ClipImageActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.shoes.position.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="ff52091a7554c0491b7ddd67343df924"/>
