@@ -5,4 +5,5 @@ package com.shoes.position.utils;
  */
 
 public class Delete {
+
 }
