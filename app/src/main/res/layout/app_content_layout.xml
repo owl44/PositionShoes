@@ -4,29 +4,50 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/activity_base_rl_all"
         android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="68dp"
         android:background="@color/white">
 
-        <ImageView
+        <TextView
             android:id="@+id/img_back"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="match_parent"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:src="@drawable/back_left" />
+            android:gravity="center"
+            android:paddingLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:minWidth="50dp"
+            android:drawableLeft="@drawable/back_left"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+        <!--<ImageView-->
+            <!--android:id="@+id/img_back"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:paddingLeft="15dp"-->
+            <!--android:paddingRight="15dp"-->
+            <!--android:src="@drawable/back_left" />-->
 
         <TextView
             android:id="@+id/tv_title"
-            android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:gravity="center"
-            android:textSize="18sp" />
-    </RelativeLayout>
+            android:singleLine="true"
+            android:textSize="20sp" />
+        <!--<TextView-->
+            <!--android:id="@+id/tv_title"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:gravity="center"-->
+            <!--android:textSize="18sp" />-->
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/app_content"

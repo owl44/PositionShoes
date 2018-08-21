@@ -2,7 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.shoes.position">
 
+    //地图包、搜索包需要的基础权限
+    <!--允许程序打开网络套接字-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--允许程序设置内置sd卡的写权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--允许程序获取网络状态-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--允许程序访问WiFi网络信息-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--允许程序读写手机状态和身份-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".config.PSApplicationConfig"
@@ -12,22 +24,43 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/ImageTranslucentTheme">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.LoginActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".ui.mine.MyEquitActivity"
-            android:theme="@style/AppThemeNoTitle"/>
+            android:screenOrientation="portrait"/>
         <activity android:name=".ui.mine.StepDataActivity"
-            android:theme="@style/AppThemeNoTitle"/>
-        <activity android:name=".ui.mine.ProblemActivity" />
-        <activity android:name=".ui.mine.AboutActivity" />
-        <activity android:name=".ui.mine.SetActivity" />
-        <activity android:name=".ui.mine.PersonalInfoActivity"></activity>
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.mine.ProblemActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.mine.AboutActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.mine.SetActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.mine.PersonalInfoActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.donkingliang.imageselector.ImageSelectorActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.donkingliang.imageselector.PreviewActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name="com.donkingliang.imageselector.ClipImageActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="ff52091a7554c0491b7ddd67343df924"/>
     </application>
 
 </manifest>

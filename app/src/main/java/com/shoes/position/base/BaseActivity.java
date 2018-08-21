@@ -22,11 +22,11 @@ import butterknife.ButterKnife;
 
 public abstract class BaseActivity extends AppCompatActivity {
     @BindView(R.id.img_back)
-    ImageView imgBack;
+    TextView imgBack;
     @BindView(R.id.tv_title)
     TextView tvTitle;
     @BindView(R.id.activity_base_rl_all)
-    RelativeLayout activityBaseRlAll;
+    FrameLayout activityBaseRlAll;
     @BindView(R.id.app_content)
     FrameLayout appContent;
     public FrameLayout llContent;

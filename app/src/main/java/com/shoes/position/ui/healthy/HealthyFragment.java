@@ -1,12 +1,15 @@
 package com.shoes.position.ui.healthy;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.shoes.position.R;
-import com.shoes.position.base.BaseFragment;
 
-public class HealthyFragment extends BaseFragment {
+public class HealthyFragment extends Fragment {
 
     public static HealthyFragment newInstance() {
         Bundle bundle = new Bundle();
@@ -15,13 +18,11 @@ public class HealthyFragment extends BaseFragment {
         return healFragment;
     }
 
+    @Nullable
     @Override
-    protected int getLayoutId() {
-        return R.layout.fragment_healthy;
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_healthy, null);
+        return view;
     }
 
-    @Override
-    protected void initData() {
-
-    }
 }
