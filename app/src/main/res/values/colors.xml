@@ -13,4 +13,5 @@
     <color name="exit_red">#FF0000</color>
     <color name="navigation_bg">#9B80F3</color>
     <color name="theme">#ececec</color>
+    <color name="progress_bg">#D3C6FF</color>
 </resources>

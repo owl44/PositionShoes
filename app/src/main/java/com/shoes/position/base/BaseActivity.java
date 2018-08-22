@@ -4,15 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.shoes.position.R;
@@ -30,6 +31,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     @BindView(R.id.app_content)
     FrameLayout appContent;
     public FrameLayout llContent;
+    @BindView(R.id.rightText)
+    TextView rightText;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,14 +43,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     public void baseSetContentView(int layoutResID, boolean isTitle) {
-        baseSetContentView(layoutResID, isTitle,"");
+        baseSetContentView(layoutResID, isTitle, "");
     }
 
     public void baseSetContentView(int layoutResID, String title) {
-        baseSetContentView(layoutResID, true,title);
+        baseSetContentView(layoutResID, true, title);
     }
 
-    public void baseSetContentView(int layoutResID, boolean isTitle,String title) {
+    public void baseSetContentView(int layoutResID, boolean isTitle, String title) {
         setContentView(R.layout.app_content_layout);
         //基类布局中预定义的Layout区域
         llContent = findViewById(R.id.app_content);
@@ -55,7 +59,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         View view = inflater.inflate(layoutResID, null);
         llContent.addView(view);
         ButterKnife.bind(this);
-        if(!isTitle)
+        if (!isTitle)
             activityBaseRlAll.setVisibility(View.GONE);
         tvTitle.setText(title);
         imgBack.setOnClickListener(new View.OnClickListener() {
@@ -66,8 +70,20 @@ public abstract class BaseActivity extends AppCompatActivity {
         });
     }
 
-    public void setImgBack(View.OnClickListener listener){
-        imgBack.setOnClickListener(listener);
+    public void setImgBack(@NonNull String name, @DrawableRes int id, View.OnClickListener listener) {
+        imgBack.setText(name);
+        imgBack.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(id),
+                null, null, null);
+        if(listener != null)
+            imgBack.setOnClickListener(listener);
+    }
+
+    public void setRightText(@NonNull String name, @DrawableRes int id, View.OnClickListener listener) {
+        rightText.setText(name);
+        rightText.setCompoundDrawablesWithIntrinsicBounds(null,
+                null, getResources().getDrawable(id), null);
+        if(listener != null)
+            rightText.setOnClickListener(listener);
     }
 
     //setContentView之前的设置

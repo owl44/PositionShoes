@@ -13,6 +13,11 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
+    <View
+        android:background="@color/bottom_tvn"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+
     <include
         layout="@layout/frame_bottommenu"
         android:layout_width="match_parent"

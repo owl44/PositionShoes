@@ -47,6 +47,18 @@
             <!--android:layout_height="match_parent"-->
             <!--android:gravity="center"-->
             <!--android:textSize="18sp" />-->
+
+        <TextView
+            android:id="@+id/rightText"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="right"
+            android:gravity="center"
+            android:paddingRight="20dp"
+            android:minWidth="50dp"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
     </FrameLayout>
 
     <FrameLayout
