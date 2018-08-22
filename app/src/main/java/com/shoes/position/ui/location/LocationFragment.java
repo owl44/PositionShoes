@@ -1,5 +1,6 @@
 package com.shoes.position.ui.location;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,9 @@ import android.widget.TextView;
 
 import com.amap.api.maps.MapView;
 import com.shoes.position.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,6 +44,21 @@ public class LocationFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_location, null);
         unbinder = ButterKnife.bind(this, view);
         mMapView.onCreate(savedInstanceState);
+//        ringProgress.setSweepAngle(360);
+//        ringProgress.setDrawBg(true, Color.rgb(168, 168, 168));
+//        ringProgress.setDrawBgShadow(true, Color.argb(100, 235, 79, 56));
+//        ringProgress.setCorner(true);
+//        ringProgress.setOnSelectRing(new OnSelectRing() {
+//            @Override
+//            public void Selected(Ring r) {
+//
+//            }
+//        });
+//        Ring r = new Ring(progress,text,title,startColor,endColor);
+//        List<Ring> mlistRing = new ArrayList<>();
+//        mlistRing.add(r);
+//        ringProgress.setData(mlistRing, 1000);// if >0 animation ==0 null
+
         return view;
     }
 

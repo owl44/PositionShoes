@@ -12,4 +12,5 @@
     <color name="line_color">#E1E1E1</color>
     <color name="exit_red">#FF0000</color>
     <color name="navigation_bg">#9B80F3</color>
+    <color name="theme">#ececec</color>
 </resources>

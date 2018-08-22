@@ -33,7 +33,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.LoginActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait">
+
+        </activity>
         <activity android:name=".ui.mine.MyEquitActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".ui.mine.StepDataActivity"

@@ -22,4 +22,19 @@
         <item name="colorPrimaryDark">@color/white</item>
         <item name="colorAccent">@color/white</item>
     </style>
+
+    <style name="click_enable">
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <!--背景是theme的点击变色,按钮弧度4dp-->
+    <style name="theme_click_enable" parent="click_enable">
+        <item name="android:background">@drawable/btn_theme_color</item>
+    </style>
+
+    <style name="text_white_theme_click_16" parent="theme_click_enable">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
 </resources>
