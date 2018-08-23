@@ -4,10 +4,14 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.view.View;
 
+import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.shoes.position.R;
 import com.shoes.position.base.BaseActivity;
+import com.shoes.position.utils.SelectorUtils;
 
-public class TrajectoryActivity extends BaseActivity {
+import java.util.Date;
+
+public class TrajectoryActivity extends BaseActivity implements OnTimeSelectListener {
 
     @Override
     public void setContentLayout() {
@@ -19,8 +23,13 @@ public class TrajectoryActivity extends BaseActivity {
         setRightText("", R.drawable.rili, new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                SelectorUtils.showTime(TrajectoryActivity.this,TrajectoryActivity.this);
             }
         });
+    }
+
+    @Override
+    public void onTimeSelect(Date date, View v) {
+
     }
 }

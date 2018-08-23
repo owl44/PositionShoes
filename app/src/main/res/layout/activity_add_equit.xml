@@ -5,12 +5,26 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.shoes.position.ui.location.AddEquitActivity">
+
+    <ImageView
+        android:layout_marginTop="120dp"
+        android:src="@drawable/tianjiashebei_ewm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:hint="手动输入设备编码"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
     <Button
-        android:text="添加设备"
+        android:text="立即绑定"
         style="@style/text_white_theme_click_16"
         android:layout_width="match_parent"
         android:layout_height="44dp" />

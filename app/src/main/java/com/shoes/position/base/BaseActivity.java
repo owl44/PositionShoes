@@ -33,6 +33,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public FrameLayout llContent;
     @BindView(R.id.rightText)
     TextView rightText;
+    private View view;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,7 +57,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         llContent = findViewById(R.id.app_content);
         //通过LayoutInflater填充基类的layout区域
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(layoutResID, null);
+        view = inflater.inflate(layoutResID, null);
         llContent.addView(view);
         ButterKnife.bind(this);
         if (!isTitle)
@@ -68,6 +69,10 @@ public abstract class BaseActivity extends AppCompatActivity {
                 finishActivity();
             }
         });
+    }
+
+    public View getContentView(){
+        return view;
     }
 
     public void setImgBack(@NonNull String name, @DrawableRes int id, View.OnClickListener listener) {
