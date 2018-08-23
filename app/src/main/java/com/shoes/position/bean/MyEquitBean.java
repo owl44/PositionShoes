@@ -1,6 +1,6 @@
 package com.shoes.position.bean;
 
-public class myEquitBean extends BaseBean {
+public class MyEquitBean extends BaseBean {
     private String name;
 
     public String getName() {

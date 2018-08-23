@@ -8,6 +8,10 @@
     android:layout_height="match_parent"
     tools:context="com.shoes.position.ui.mine.PersonalInfoActivity">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_height"/>
+
     <LinearLayout
         android:id="@+id/mine_head_img"
         android:layout_marginTop="20dp"

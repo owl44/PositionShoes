@@ -4,7 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/mine_bg"
     tools:context="com.shoes.position.ui.location.AddEquitActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_height"/>
 
     <ImageView
         android:layout_marginTop="120dp"

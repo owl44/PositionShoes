@@ -1,6 +1,5 @@
 package com.shoes.position.ui.mine;
 
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -8,13 +7,12 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.shoes.position.R;
 import com.shoes.position.adapter.MyEquitAdapter;
 import com.shoes.position.base.BaseActivity;
-import com.shoes.position.bean.myEquitBean;
+import com.shoes.position.bean.MyEquitBean;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MyEquitActivity extends BaseActivity {
     @BindView(R.id.recycler_view)
@@ -28,9 +26,9 @@ public class MyEquitActivity extends BaseActivity {
 
     @Override
     protected void setLogic() {
-        List<myEquitBean> workInfos = new ArrayList<>();
+        List<MyEquitBean> workInfos = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            myEquitBean workInfo = new myEquitBean();
+            MyEquitBean workInfo = new MyEquitBean();
             workInfo.setName("文章标题" + (i + 1));
             workInfos.add(workInfo);
         }

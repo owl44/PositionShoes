@@ -1,5 +1,7 @@
 package com.shoes.position.ui;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,8 +22,14 @@ import android.widget.Toast;
 
 import com.shoes.position.R;
 import com.shoes.position.base.BaseActivity;
+import com.shoes.position.http.OkHttpManager;
+import com.shoes.position.http.Urls;
+import com.shoes.position.utils.PhoneNumberUtils;
+import com.shoes.position.utils.TimeHandler;
 import com.shoes.position.utils.ToastUtils;
 import com.shoes.position.view.NonFocusingScrollView;
+
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Timer;
@@ -50,9 +58,7 @@ public class LoginActivity extends BaseActivity {
     @BindView(R.id.qq)
     ImageView qq;
 
-    private final int TOTALTIME = 120;
-    private int timeCount = TOTALTIME;
-    private Timer timer = null;
+    private TimeHandler handler = new TimeHandler();
     @Override
     public void setContentLayout() {
         baseSetContentView(R.layout.activity_login, false);
@@ -98,6 +104,22 @@ public class LoginActivity extends BaseActivity {
                 }
             }
         });
+
+        PhoneNumberUtils.setMaxNumberLenght(minePhone, 13);
+        handler.setOnTimeHandlerOverListener(new TimeHandler.OnTimeHandlerOverListener() {
+            @Override
+            public void onTick(int time) {
+                veriCode.setTextColor(Color.GRAY);
+                veriCode.setText(time + "s");
+            }
+
+            @Override
+            public void onFinish() {
+                veriCode.setTextColor(Color.WHITE);
+                veriCode.setText("获取验证码");
+             //   isCanSend = true;
+            }
+        });
     }
 
     @OnClick({R.id.veri_code, R.id.weixin, R.id.qq,R.id.btn_login})
@@ -107,49 +129,93 @@ public class LoginActivity extends BaseActivity {
                 getCode();
                 break;
             case R.id.weixin:
+
                 break;
             case R.id.qq:
+
                 break;
             case R.id.btn_login:
-                login();
+                register();
                 break;
         }
     }
     //获取验证码
     private void getCode(){
         String phone = minePhone.getText().toString().trim();
-        if (TextUtils.isEmpty(phone))
-            Toasty.info(this, "请输入手机号码.", Toast.LENGTH_SHORT, true).show();
-        else if (!isPhone(phone))
-            ToastUtils.showToast("手机号码格式错误");
-        else if (timeCount == TOTALTIME) {
-            HashMap<String, String> params = new HashMap<>();
-            params.put("CellPhone", phone);
+        if (TextUtils.isEmpty(phone)) {
+            Toasty.info(this, "请输入手机号码", Toast.LENGTH_SHORT, true).show();
+            return;
+        }else if (!PhoneNumberUtils.isPhone(phone)) {
+            ToastUtils.showToast("请输入正确手机号");
+            return;
+        }else{
+            HashMap<String, String> map = new HashMap<>();
+            map.put("mobile", phone);
         //    showToastAnim("获取验证码...");
-            ToastUtils.showToast("验证码已发送成功");
-            timer = new Timer();
-            timer.schedule(new TimerTask() {
+            OkHttpManager.setGetRequest(LoginActivity.this, Urls.MOBLIE_EXIT, null, map, new OkHttpManager.OnResultCallbackListener() {
                 @Override
-                public void run() {
-                    Message msg = new Message();
-                    msg.what = 0;
-                  //  handler.sendMessage(msg);
+                public void onOffNet(String s) {
+                    ToastUtils.showToast(s);
                 }
-            }, 1000, 1000);
+
+                @Override
+                public void onError(String e) {
+                    ToastUtils.showToast(e);
+                }
+
+                @Override
+                public void onResponse(String response) {
+//                    if (AnalyzeData.isSuccessfulCode(response)) {
+//                        JSONObject object = AnalyzeData.getJsonObject(response);
+//                        if (object.optString("status").equals("yes")) {
+//                            if (object.optBoolean("data")) {
+//                                ToastUtils.showToast("已经注册过请直接登陆,或修改密码");
+//                            } else {
+//                                gt3GeetestUtils.getGeetest(RegisterActivity.this);
+//                            }
+//
+//                        }
+//                    }
+                }
+            });
         }
     }
 
-    private boolean isPhone(String phone) {
-        if (phone.length() != 11)
-            return false;
-        else if (phone.matches("[0-9]*"))
-            return true;
-        else return false;
-    }
-
     //登录
-    private void login() {
+    private void register() {
+        String phone = minePhone.getText().toString().trim();
+        String code = provCode.getText().toString().trim();
+        HashMap<String, String> map = new HashMap<>();
+        OkHttpManager.setPostRequest(LoginActivity.this, null, null, map, new OkHttpManager.OnResultCallbackListener() {
+            @Override
+            public void onOffNet(String s) {
+                ToastUtils.showToast(s);
+            }
 
+            @Override
+            public void onError(String e) {
+                ToastUtils.showToast(e);
+            }
+
+            @Override
+            public void onResponse(String response) {
+//                if (AnalyzeData.isSuccessfulCode(response)) {
+//                    JSONObject object = AnalyzeData.getJsonObject(response);
+//                    if (object.optString("status").equals("yes")) {
+//                        UersData.saveToken(object.optString("data"));
+//                        UersData.isRefresh(true);
+//                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+//                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                        goIntent(intent);
+//                    } else if (object.optString("status").equals("no")) {
+//                        ToastUtils.showToast(object.optString("message"));
+//                    }
+//
+//                }
+
+            }
+        });
     }
 
 }
