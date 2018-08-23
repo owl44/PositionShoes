@@ -49,10 +49,4 @@ public class MyEquitActivity extends BaseActivity {
 //        mReadIndexAdapter.setOnItemClickListener(this);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

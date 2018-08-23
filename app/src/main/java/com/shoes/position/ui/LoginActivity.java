@@ -3,21 +3,33 @@ package com.shoes.position.ui;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.SpannedString;
+import android.text.TextUtils;
 import android.text.style.AbsoluteSizeSpan;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.shoes.position.R;
 import com.shoes.position.base.BaseActivity;
+import com.shoes.position.utils.ToastUtils;
 import com.shoes.position.view.NonFocusingScrollView;
 
+import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import butterknife.BindView;
+import butterknife.OnClick;
+import es.dmoral.toasty.Toasty;
 
 public class LoginActivity extends BaseActivity {
 
@@ -31,7 +43,16 @@ public class LoginActivity extends BaseActivity {
     LinearLayout mContent;
     @BindView(R.id.sv_content)
     NonFocusingScrollView svContent;
+    @BindView(R.id.veri_code)
+    TextView veriCode;
+    @BindView(R.id.weixin)
+    ImageView weixin;
+    @BindView(R.id.qq)
+    ImageView qq;
 
+    private final int TOTALTIME = 120;
+    private int timeCount = TOTALTIME;
+    private Timer timer = null;
     @Override
     public void setContentLayout() {
         baseSetContentView(R.layout.activity_login, false);
@@ -78,4 +99,57 @@ public class LoginActivity extends BaseActivity {
             }
         });
     }
+
+    @OnClick({R.id.veri_code, R.id.weixin, R.id.qq,R.id.btn_login})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.veri_code:
+                getCode();
+                break;
+            case R.id.weixin:
+                break;
+            case R.id.qq:
+                break;
+            case R.id.btn_login:
+                login();
+                break;
+        }
+    }
+    //获取验证码
+    private void getCode(){
+        String phone = minePhone.getText().toString().trim();
+        if (TextUtils.isEmpty(phone))
+            Toasty.info(this, "请输入手机号码.", Toast.LENGTH_SHORT, true).show();
+        else if (!isPhone(phone))
+            ToastUtils.showToast("手机号码格式错误");
+        else if (timeCount == TOTALTIME) {
+            HashMap<String, String> params = new HashMap<>();
+            params.put("CellPhone", phone);
+        //    showToastAnim("获取验证码...");
+            ToastUtils.showToast("验证码已发送成功");
+            timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    Message msg = new Message();
+                    msg.what = 0;
+                  //  handler.sendMessage(msg);
+                }
+            }, 1000, 1000);
+        }
+    }
+
+    private boolean isPhone(String phone) {
+        if (phone.length() != 11)
+            return false;
+        else if (phone.matches("[0-9]*"))
+            return true;
+        else return false;
+    }
+
+    //登录
+    private void login() {
+
+    }
+
 }
